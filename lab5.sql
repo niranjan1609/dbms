@@ -3,7 +3,7 @@
 depname varchar(20) Primary key,
 loca varchar(15),
 budget numeric(19,3)
-)
+);
 
 create table instructor
 (
@@ -13,7 +13,7 @@ designation varchar(25),
 salary numeric(9,2),
 depname varchar(10),
 foreign key(depname) references department1
-)
+);
 
 create table course1
 (
@@ -22,7 +22,7 @@ ctitle varchar(15),
 credits integer,
 depname varchar(10),
 foreign key(depname) references department1
-)
+);
 
 create table Section1
 (
@@ -33,7 +33,7 @@ year integer,
 romm_no integer,
 foreign key(ccode) references course1,
 Primary key(section_id,ccode,sem,year)
-)
+);
 
 create table Teach1
 (
@@ -45,7 +45,7 @@ year integer,
 foreign key(id) references instructor,
 foreign key(section_id,ccode,sem,year) references Section1,
 Primary key(id,section_id,ccode,sem,year)
-)
+);
 
 create table Student
 (
@@ -54,7 +54,7 @@ sname varchar(25),
 date_of_birth date,
 depname varchar(10),
 foreign key(depname) references department1
-)
+);
 
 create table Take
 (
@@ -67,7 +67,7 @@ grade varchar(2),
 foreign key(section_id,ccode,sem,year) references Section1,
 foreign key(sid) references Student,
 Primary key(sid,section_id,ccode,sem,year)
-)
+);
 insert into instructor values('1','Dheeraj','Professor',65000,'csc');
 insert into instructor values('2','Hariharan','Professor',65000,'goerge');
 insert into instructor values('3','Manikishan','Professor',75000,'lolan');
